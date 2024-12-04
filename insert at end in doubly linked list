@@ -1,0 +1,50 @@
+class DLL{
+    Node head;
+    class Node{
+        int data;
+        Node next;
+        Node prev;
+        
+    Node(int data)
+    {
+        this.data=data;
+        next=null;
+        prev=null;
+    }
+    }
+    public void Insertatend(int data)
+    {
+        Node newNode=new Node(data);
+        if (head == null) {
+            head = newNode;
+        } else {
+            Node temp = head;
+            while (temp.next != null) {
+                temp = temp.next;
+            }
+            temp.next = newNode;
+            newNode.prev = temp;
+        }
+    }
+    public void printallnodes()
+    {
+        Node temp=head;
+        while(head!=null)
+        {
+            System.out.println(temp.data+" ");
+            temp=temp.next;
+            
+        }
+        System.out.println();
+    }
+    public static void main(String[] args)
+    {
+        DLL list=new DLL();
+        list.Insertatend(100);
+        list.Insertatend(200);
+        list.Insertatend(300);
+        
+        list.printallnodes();
+        
+    }
+}
